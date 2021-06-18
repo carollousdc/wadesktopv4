@@ -1,0 +1,126 @@
+BOS 
+Ok 54631 -> Ob 38400 + Colok 4710 
+= 43110 - Hd 14035
+= 29075 Menang.
+2ax180. 
+Cb 3x80. Cb 6x30. Cb 8x270. Cb 9x100. Cp 36x10. Cp 89x20. 
+
+AntoBarus
+Om 3831
+2ax13. 3ax0. 4ax0. 
+Setor 1848 - 9159 = str 11.007 - byr 9295 = str 1712
+
+AzizBrimob
+Om 881
+2ax0. 3ax0. 4ax0. 
+Clk 230
+Hd Clk 450 = Cb8x70. Cb3x80. Cb6x30. 
+Setor 414 + str 215 = str 629
+
+Daulat1164
+Om 2014
+2ax2. 3ax0. 4ax0. 
+Clk 220
+Hd Clk 0 
+Setor 1489
+
+Daulat1204
+Om 850
+2ax3. 3ax0. 4ax0. 
+Clk 400
+Hd Clk 0 
+Setor 785
+
+Daulat2268
+Om 5003
+2ax8. 3ax0. 4ax0. 
+Clk 760
+Hd Clk 390 = Cb8x150. 
+Setor 3312
+
+Daulat5686
+Om 1308
+2ax4. 3ax0. 4ax0. 
+Clk 420
+Hd Clk 200 = Cb8x50. Cp36x10. 
+Setor 855
+
+Daulat6376
+Om 1077
+2ax2. 3ax0. 4ax0. 
+Clk 510
+Hd Clk 140 = Cp89x20. 
+Setor 983
+
+Daulat9385
+Om 1007
+2ax4. 3ax0. 4ax0. 
+Clk 50
+Hd Clk 0 
+Setor 474
+
+OMST GLOBAL DAULAT BARUs
+total om 11.259 -30% 7881
+total 2a 23
+total 3a 0
+total 4a 0
+total clk 2360
+total hcl 730
+str 7901 +  str 17.684 = str 25.585 - byr 16628 = str 8957
+
+EbinBaru
+Om 24265
+2ax110. 3ax0. 4ax0. 
+Setor 9285 + str 655 = str 9940
+
+Jali
+Om 8889
+2ax24. 3ax0. 4ax0. 
+Clk 1230
+Hd Clk 255 = Cb9x100. 
+Setor 5517 
+
+PtDayat
+Om 538
+2ax0. 3ax0. 4ax0. 
+Clk 110
+Hd Clk 0 
+Setor 497
+
+PtKos
+Om 210
+2ax0. 3ax0. 4ax0. 
+Setor 151
+
+PtPrayet
+Om 494
+2ax0. 3ax0. 4ax0. 
+Clk 80
+Hd Clk 0 
+Setor 435
+
+PtTonang
+Om 398
+2ax5. 3ax0. 4ax0. 
+Minus 64
+
+PtToncel
+Om 1144
+2ax5. 3ax0. 4ax0. 
+Clk 100
+Hd Clk 0 
+Setor 573
+
+PtTotok
+Om 827
+2ax0. 3ax0. 4ax0. 
+Clk 400
+Hd Clk 0 
+Setor 995
+
+Titus0148
+Om 1895
+2ax0. 3ax0. 4ax0. 
+Clk 200
+Hd Clk 0 
+Setor 1526

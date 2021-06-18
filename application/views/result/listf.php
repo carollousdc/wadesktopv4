@@ -1,0 +1,1 @@
+<?=!empty($format) ? "<b>" . $format . "</b><div class='d-flex md-2' style='white-space:normal;'>" . $angka . "</div>" : "";?>
