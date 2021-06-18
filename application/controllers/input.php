@@ -23,11 +23,11 @@ class Input extends saTemplate
         $omsetId = $this->omset->getLastId();
         $omsetArrId = $omsetId;
 
-        $regex = "/(?<format>[A-Z-a-z]+[0-9]+x[0-9]+)|(?<formatd>[0-9]+[A-Z-a-z]+[0-9x]+[0-9])|(?<number2>[0-9(.|\s)]+x[0-9]+)|(?<number>[0-9]+)/i";
+        $regex = "/(?<format>[A-Z-a-z]+[0-9]+x[0-9]+)|(?<formatd>[0-9]+(SET|BBSET)[x0-9]+)|(?<number2>[0-9(.|\s)]+x[0-9]+)|(?<number>[0-9]+)/i";
         $regex_number = "/[0-9]+|[A-Z-a-z]+|[a-z]+/";
-        $regex_string = "/(?<angka>[0-9]+)|[x0-9](?<hasil>[0-9]+)/";
+        $regex_string = "/(?<angka>[0-9]{1,4})|[x0-9](?<hasil>[0-9]{1,4})/";
         $validate_format = ['CB', 'CP', 'SET', 'SH', 'BBSET'];
-        $front_format = ['BBSET', 'SET'];
+        $front_format = ['BBSET', 'SET'];git commit -m "First commit"
         if ($this->pesan->add(['id' => $data['id'], 'kontak' => $data['kontak'], 'id_whatsapp' => $data['id_whatsapp'], 'name' => $data['name'], 'process_date' => date('y-m-d'), 'm_status' => 1, 'creator' => $this->creator])) {
             $this->pesan_detail->add(['id' => $data_arr['id'], 'name' => $data['name'], 'kontak' => $data['kontak'], 'm_status' => 1]);
             $rowValue = preg_match_all($regex, $data['name'], $matches, PREG_SET_ORDER);
