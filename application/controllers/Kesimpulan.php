@@ -145,14 +145,15 @@ class kesimpulan extends saTemplate
             $dum_val = "";
             $sum = 0;
             foreach ($this->omset->gets(['date' => date('Y-m-d'), 'status' => 0]) as $kmaster => $val_master) {
-                if (!empty($this->master->getsSum(['id' => $val_master->id], 'angka', "", ['CB', 'CP']))) {
-                    foreach ($this->master->getsSum(['id' => $val_master->id], 'angka', "", ['CB', 'CP']) as $keyv => $valuev) {
+                if (!empty($this->master->getsFormatSum(['id' => $val_master->id], 'angka', "", ['CB', 'CP']))) {
+                    foreach ($this->master->getsFormatSum(['id' => $val_master->id], 'angka', [0 => 'format', 1 => 'ASC'], ['CB', 'CP', 'CN']) as $keyv => $valuev) {
                         $sum += $valuev->hasil;
-                        $dum_val .= $valuev->angka . "x" . $valuev->hasil . ". ";
+
+                        $dum_val .= $valuev->format . $valuev->angka . "x" . $valuev->hasil . ". ";
                     }
                 }
             }
-            $notepad .= "Tanggal: " . $this->omset->gets(['date' => date('Y-m-d'), 'status' => 0])[0]->date . " | OK Colok = " . $sum;
+            $notepad .= "Tanggal: " . $this->omset->gets(['date' => date('Y-m-d'), 'status' => 0])[0]->date . " | Total Colok = " . $sum;
             $notepad .= "\r\n";
             $notepad .= $dum_val;
             $handle = fopen("laporan/colok/COLOK - " . date('Y-m-d') . ".txt", "w");

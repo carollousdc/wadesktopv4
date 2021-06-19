@@ -64,11 +64,35 @@ class Kesimpulan_sql extends MY_model
         }
         if (empty($order)) {
             $this->db->order_by('angka', 'ASC');
-        }
+        } else $this->db->order_by($order[0], $order[1]);
         if (!empty($group_by)) {
             $this->db->select('angka');
             $this->db->select('sum(hasil) as hasil');
             $this->db->select('count(*) as count');
+            $this->db->group_by('angka');
+        }
+
+        if (!empty($where)) {
+            $this->db->where_in('format', $where_in);
+        }
+
+        $query = $this->db->get_where($this->tabel . " m", $where);
+        return $query->result();
+    }
+
+    public function getsFormatSum($where = "", $group_by = "", $order = array(), $where_in = "")
+    {
+        if (empty($where)) {
+            $where = array("m.status" => 0);
+        }
+        if (empty($order)) {
+            $this->db->order_by('angka', 'ASC');
+        } else $this->db->order_by($order[0], $order[1]);
+        if (!empty($group_by)) {
+            $this->db->select('angka');
+            $this->db->select('sum(hasil) as hasil');
+            $this->db->select('count(*) as count');
+            $this->db->select('format');
             $this->db->group_by('angka');
         }
 
