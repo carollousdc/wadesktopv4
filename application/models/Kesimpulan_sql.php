@@ -64,7 +64,7 @@ class Kesimpulan_sql extends MY_model
         }
         if (empty($order)) {
             $this->db->order_by('angka', 'ASC');
-        } else $this->db->order_by($order[0], $order[1]);
+        }
         if (!empty($group_by)) {
             $this->db->select('angka');
             $this->db->select('sum(hasil) as hasil');
@@ -72,7 +72,7 @@ class Kesimpulan_sql extends MY_model
             $this->db->group_by('angka');
         }
 
-        if (!empty($where)) {
+        if (!empty($where_in)) {
             $this->db->where_in('format', $where_in);
         }
 

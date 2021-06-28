@@ -212,7 +212,7 @@ class Input extends saTemplate
     {
         $kontak = $this->input->post('kontak');
         $name_value = $this->input->post('name');
-        $regex = "/(?<format>[A-Z-a-z]+[0-9]+x[0-9]+)|(?<formatd>[0-9]+(SET|BBSET)[x0-9]+)|(?<number2>[0-9(.|\s)]+x[0-9]+)|(?<number>[0-9]+)/i";
+        $regex = "/(?<format>[A-Z-a-z.|\s]+[0-9]+x[0-9]+)|(?<formatd>[0-9]+(SET|BBSET)[x0-9]+)|(?<number2>[0-9(.|\s)]+x[0-9]+)|(?<number>[0-9]+)/i";
         $regex_number = "/[0-9]+|[A-Z-a-z]+|[a-z]+/";
         $regex_string = "/(?<angka>[0-9]{1,4})|[x0-9](?<hasil>[0-9]{1,4})/";
         $validate_format = ['CB', 'CP', 'CN', 'SET', 'BBSET', 'SH'];

@@ -1,2 +1,7 @@
 Tanggal: 2021-06-19 | Total Colok = 31
-CB5x15. CB5x15. CP2x1. 
+
+CB = 30
+CB5x15. CB5x15. 
+
+CP = 1
+CP2x1. 

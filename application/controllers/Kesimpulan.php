@@ -32,7 +32,6 @@ class kesimpulan extends saTemplate
                     $this->data['bodyTable' . $kval] .= "<td style='width:5px;'>" . $valuev->count . "</td>";
                     $this->data['bodyTable' . $kval] .= "</tr>";
                 }
-
                 if (!empty($this->master->getsWhereIn(['format' => 'BBSET', 'date(create_date)' => date('Y-m-d')], 'angka'))) {
                     foreach ($this->master->getsWhereIn(['format' => 'BBSET', 'date(create_date)' => date('Y-m-d')], 'angka') as $keyv => $valuev) {
                         $kval = strlen($valuev->angka) . 'd';
@@ -120,16 +119,9 @@ class kesimpulan extends saTemplate
                         $dum_val .= $valuev->angka . "x" . $valuev->hasil . ". ";
                     }
                 }
-                if (!empty($this->master->getsSum(['id' => $val_master->id, 'format' => 'BBSET'], 'angka'))) {
-                    foreach ($this->master->getsSum(['id' => $val_master->id, 'format' => 'BBSET'], 'angka') as $keyv => $valuev) {
-                        if (strlen($valuev->angka) == 4) {
-                            $sum += $valuev->hasil;
-                            $dum_val .= $valuev->angka . "x" . $valuev->hasil . ". ";
-                        }
-                    }
-                }
             }
             $notepad .= "Tanggal: " . $this->omset->gets(['date' => date('Y-m-d'), 'status' => 0])[0]->date . " | OK 4A = " . $sum;
+            $notepad .= "\r\n";
             $notepad .= "\r\n";
             $notepad .= $dum_val;
             $handle = fopen("laporan/4D/4D - " . date('Y-m-d') . ".txt", "w");
@@ -142,20 +134,26 @@ class kesimpulan extends saTemplate
     {
         $notepad = "";
         if (!empty($this->omset->gets(['date' => date('Y-m-d'), 'status' => 0]))) {
-            $dum_val = "";
             $sum = 0;
             foreach ($this->omset->gets(['date' => date('Y-m-d'), 'status' => 0]) as $kmaster => $val_master) {
-                if (!empty($this->master->getsFormatSum(['id' => $val_master->id], 'angka', "", ['CB', 'CP']))) {
+                if (!empty($this->master->getsFormatSum(['id' => $val_master->id], 'angka', "", ['CB', 'CP', 'CN']))) {
                     foreach ($this->master->getsFormatSum(['id' => $val_master->id], 'angka', [0 => 'format', 1 => 'ASC'], ['CB', 'CP', 'CN']) as $keyv => $valuev) {
                         $sum += $valuev->hasil;
-
-                        $dum_val .= $valuev->format . $valuev->angka . "x" . $valuev->hasil . ". ";
+                        !isset($sumf[$valuev->format]) ? $sumf[$valuev->format] = $valuev->hasil : $sumf[$valuev->format] += $valuev->hasil;
+                        if (empty($dum_val[$valuev->format])) $dum_val[$valuev->format] = "";
+                        $dum_val[$valuev->format] .= $valuev->format . $valuev->angka . "x" . $valuev->hasil . ". ";
                     }
                 }
             }
             $notepad .= "Tanggal: " . $this->omset->gets(['date' => date('Y-m-d'), 'status' => 0])[0]->date . " | Total Colok = " . $sum;
             $notepad .= "\r\n";
-            $notepad .= $dum_val;
+            foreach ($dum_val as $key => $value) {
+                $notepad .= "\r\n";
+                $notepad .= $key . " = " . $sumf[$key];
+                $notepad .= "\r\n";
+                $notepad .= $value;
+                $notepad .= "\r\n";
+            }
             $handle = fopen("laporan/colok/COLOK - " . date('Y-m-d') . ".txt", "w");
             fwrite($handle, $notepad);
             fclose($handle);
